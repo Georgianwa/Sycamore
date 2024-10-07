@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product List</title>
+    </head>
+    <body>
+        <%- include("header.ejs") %>
+        <h1>Product List</h1>
+        <ul>
+            <% products.forEach((product, productIndex) => { %>
+                <li>
+                    <strong><%= product.name %></strong>
+                    <p>Select a shade:</p>
+                    <form action="/select-shade" method="POST">
+                        <select name="shade_name">
+                            <% product.shades.forEach(shade => { %>
+                                <option value="<%= shade %>"><%= shade %>"></option>
+                            <% }); %>
+                        </select>
+                        <button type="submit">Choose a shade</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </body>
+</html>
