@@ -1,0 +1,69 @@
+Relational Database: Inventory Management System for a Retail Store. A relational database would be ideal for this type of application would benefit from  since inventory management requires consistency and strict rules governing data structure. Relational databases support ACID (Atomicity, Consistency, Isolation, Durability) properties, which are ideal for handling transactions, maintaining stock levels, and managing supplier information.
+
+
+NoSQL Database- Social Media Platform. NoSQL databases are ideal for a social media platform because the nature of the data involved (posts, comments, likes) is usually unstructured and semi-structured and the need for scalability. NoSQL databases like MongoDB allow for flexible document structures and easy horizontal scaling.
+
+Sketching Database Schema and Document Structure
+
+1. Relational Database Schema for Inventory Management System
+Schema for a retail inventory management system using a relational database like (PostgreSQL).
+Tables and Relationships:
+Product
+◦ product_id (Primary Key, INT)
+◦ product_name (VARCHAR)
+◦ description (TEXT)
+◦ price (DECIMAL)
+◦ category_id (Foreign Key, INT)
+◦ supplier_id (Foreign Key, INT)
+ 
+Category
+◦ category_id (Primary Key, INT)
+◦ category_name (VARCHAR)
+ 
+Inventory
+◦ inventory_id (Primary Key, INT)
+◦ product_id (Foreign Key, INT)
+◦ quantity (INT)
+◦ location (VARCHAR)
+
+Relationships:
+• Product belongs to Category.
+• Inventory tracks Product quantities across locations.
+
+2. NoSQL Document Structure for Social Media Platform
+Using a document-oriented NoSQL database like MongoDB, data can be modeled for a social media platform. Each post, user, and comment can be stored as a separate document in a collection, with nested documents and arrays for flexibility.
+Collections and Document Structure:
+
+Users Collection:
+{
+    "_id": "user_id_123",
+    "username": "user123",
+    "email": "user123@example.com",
+    "bio": "Tech enthusiast",
+    "followers": ["user_id_456", "user_id_789"],
+    "following": ["user_id_456", "user_id_789"]
+}
+   
+Posts Collection:
+{
+    "_id": "post_id_001",
+    "user_id": "user_id_123",
+    "content": "Loving the new tech!",
+    "tags": ["tech", "innovation"],
+    "timestamp": "2023-05-01T08:30:00Z",
+    "likes": 120,
+    "comments": [
+        {
+            "comment_id": "comment_001",
+            "user_id": "user_id_456",
+            "content": "Same here!",
+            "timestamp": "2023-05-01T09:00:00Z"
+        },
+        {
+            "comment_id": "comment_002",
+            "user_id": "user_id_789",
+            "content": "What are you excited about?",
+            "timestamp": "2023-05-01T09:15:00Z"
+        }
+    ]
+}
