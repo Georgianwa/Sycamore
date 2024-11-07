@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 node_modules/
+=======
+# database configuration
+database.js
+>>>>>>> c8342a49b8729819ba79fa76be38e1a0589768ef
